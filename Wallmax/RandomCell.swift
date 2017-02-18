@@ -8,7 +8,21 @@
 
 import UIKit
 import GreedoLayout
+import Kingfisher
 
 class RandomCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    
+    var image : WallhavenImage? {
+        didSet {
+            guard let image = image else { return }
+            configUI(forImage: image)
+        }
+    }
+    
+    func configUI(forImage image: WallhavenImage) {
+        if let url = URL(string: image.thumbURL!) {
+            imageView.kf.setImage(with: url)
+        }
+    }
 }

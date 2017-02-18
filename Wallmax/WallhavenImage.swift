@@ -11,4 +11,5 @@ import Foundation
 class WallhavenImage : NSObject {
     var thumbURL : String?
     var fullSizeURL: String?
+    var resolution : String?
 }

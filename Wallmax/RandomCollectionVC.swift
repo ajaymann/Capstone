@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import Kanna
 
 private let reuseIdentifier = "RandomCell"
 
