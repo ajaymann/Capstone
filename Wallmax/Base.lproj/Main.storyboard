@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TpL-FP-mBt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Wallmax" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,6 +25,91 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1681" y="-42"/>
+        </scene>
+        <!--Latest-->
+        <scene sceneID="RDV-Df-zlJ">
+            <objects>
+                <viewController id="P50-O7-hrE" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hd6-v9-ayY"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Pw-Jc-mFv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="klh-vb-5iw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Latest" id="pgX-K6-qfo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VD6-Ex-7vJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679" y="218"/>
+        </scene>
+        <!--Random-->
+        <scene sceneID="iuK-jl-CMc">
+            <objects>
+                <viewController id="pKE-zS-hqk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mON-Wn-1HI"/>
+                        <viewControllerLayoutGuide type="bottom" id="2hL-Hb-hAk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EmX-VV-qr0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xlo-UQ-LB7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cGf-3S-dkZ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="randomCell" id="NtG-Ya-Lnd">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xlo-UQ-LB7" secondAttribute="trailing" id="Nk4-IM-y3E"/>
+                            <constraint firstItem="xlo-UQ-LB7" firstAttribute="leading" secondItem="EmX-VV-qr0" secondAttribute="leading" id="VY7-QW-jUc"/>
+                            <constraint firstItem="2hL-Hb-hAk" firstAttribute="top" secondItem="xlo-UQ-LB7" secondAttribute="bottom" id="XHI-Hk-8vK"/>
+                            <constraint firstItem="xlo-UQ-LB7" firstAttribute="top" secondItem="EmX-VV-qr0" secondAttribute="top" id="ctl-g0-chI"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Random" id="yzd-Dg-LYv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CZo-FS-c1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="677.60000000000002" y="-437.63118440779613"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="SLc-pn-pab">
+            <objects>
+                <tabBarController id="TpL-FP-mBt" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="1U2-s4-Ehe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="pKE-zS-hqk" kind="relationship" relationship="viewControllers" id="cQR-bT-DpZ"/>
+                        <segue destination="P50-O7-hrE" kind="relationship" relationship="viewControllers" id="SpL-32-VW5"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GkE-rG-tk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-273" y="-110"/>
         </scene>
     </scenes>
 </document>

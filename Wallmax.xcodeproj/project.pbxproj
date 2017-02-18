@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E4FD66FF063A6827B149BFC /* Pods_Wallmax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AEE55175A2FC1D6D4DBBB61 /* Pods_Wallmax.framework */; };
 		C65A94A31E585F3B00229884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A94A21E585F3B00229884 /* AppDelegate.swift */; };
 		C65A94A51E585F3B00229884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A94A41E585F3B00229884 /* ViewController.swift */; };
 		C65A94A81E585F3B00229884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65A94A61E585F3B00229884 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D0680CABAE7B962D1302BAE /* Pods-Wallmax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallmax.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wallmax/Pods-Wallmax.debug.xcconfig"; sourceTree = "<group>"; };
+		44FAE9E2C561B112CC3DF855 /* Pods-Wallmax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallmax.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wallmax/Pods-Wallmax.release.xcconfig"; sourceTree = "<group>"; };
+		7AEE55175A2FC1D6D4DBBB61 /* Pods_Wallmax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wallmax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65A949F1E585F3B00229884 /* Wallmax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallmax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65A94A21E585F3B00229884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C65A94A41E585F3B00229884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E4FD66FF063A6827B149BFC /* Pods_Wallmax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F790CF907020C277E3EBA5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AEE55175A2FC1D6D4DBBB61 /* Pods_Wallmax.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C65A94961E585F3B00229884 = {
 			isa = PBXGroup;
 			children = (
 				C65A94A11E585F3B00229884 /* Wallmax */,
 				C65A94A01E585F3B00229884 /* Products */,
+				EF5FD0B6123CD1F3DCDDC207 /* Pods */,
+				5F790CF907020C277E3EBA5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = Wallmax;
 			sourceTree = "<group>";
 		};
+		EF5FD0B6123CD1F3DCDDC207 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D0680CABAE7B962D1302BAE /* Pods-Wallmax.debug.xcconfig */,
+				44FAE9E2C561B112CC3DF855 /* Pods-Wallmax.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C65A94B11E585F3B00229884 /* Build configuration list for PBXNativeTarget "Wallmax" */;
 			buildPhases = (
+				88AB8B64681A525E1C87B00C /* [CP] Check Pods Manifest.lock */,
 				C65A949B1E585F3B00229884 /* Sources */,
 				C65A949C1E585F3B00229884 /* Frameworks */,
 				C65A949D1E585F3B00229884 /* Resources */,
+				DCB10C912B10AF0353AB2853 /* [CP] Embed Pods Frameworks */,
+				9647DA61EA460B62637CBB54 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -97,6 +124,7 @@
 					C65A949E1E585F3B00229884 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = A26X592M5J;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +159,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		88AB8B64681A525E1C87B00C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9647DA61EA460B62637CBB54 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wallmax/Pods-Wallmax-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCB10C912B10AF0353AB2853 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wallmax/Pods-Wallmax-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C65A949B1E585F3B00229884 /* Sources */ = {
@@ -210,6 +286,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -251,12 +328,14 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		C65A94B21E585F3B00229884 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D0680CABAE7B962D1302BAE /* Pods-Wallmax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = A26X592M5J;
@@ -270,6 +349,7 @@
 		};
 		C65A94B31E585F3B00229884 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44FAE9E2C561B112CC3DF855 /* Pods-Wallmax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = A26X592M5J;
@@ -300,6 +380,7 @@
 				C65A94B31E585F3B00229884 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
