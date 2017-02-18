@@ -12,6 +12,7 @@ import Kingfisher
 
 class RandomCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var resolutionLabel: UILabel!
     
     var image : WallhavenImage? {
         didSet {
@@ -24,5 +25,6 @@ class RandomCell: UICollectionViewCell {
         if let url = URL(string: image.thumbURL!) {
             imageView.kf.setImage(with: url)
         }
+        resolutionLabel.text = image.resolution
     }
 }

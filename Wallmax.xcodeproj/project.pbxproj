@@ -15,6 +15,15 @@
 		C6B008CB1E5894C7001E3C70 /* RandomCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */; };
 		C6B008CD1E5894E8001E3C70 /* RandomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CC1E5894E8001E3C70 /* RandomCell.swift */; };
 		C6B008CF1E589D0A001E3C70 /* WallhavenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */; };
+		C6E3C1081E58F70E00327BF3 /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C0FF1E58F70E00327BF3 /* WorkSans-Black.ttf */; };
+		C6E3C1091E58F70E00327BF3 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1001E58F70E00327BF3 /* WorkSans-Bold.ttf */; };
+		C6E3C10A1E58F70E00327BF3 /* WorkSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1011E58F70E00327BF3 /* WorkSans-ExtraBold.ttf */; };
+		C6E3C10B1E58F70E00327BF3 /* WorkSans-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1021E58F70E00327BF3 /* WorkSans-ExtraLight.ttf */; };
+		C6E3C10C1E58F70E00327BF3 /* WorkSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1031E58F70E00327BF3 /* WorkSans-Light.ttf */; };
+		C6E3C10D1E58F70E00327BF3 /* WorkSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1041E58F70E00327BF3 /* WorkSans-Medium.ttf */; };
+		C6E3C10E1E58F70E00327BF3 /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1051E58F70E00327BF3 /* WorkSans-Regular.ttf */; };
+		C6E3C10F1E58F70E00327BF3 /* WorkSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1061E58F70E00327BF3 /* WorkSans-SemiBold.ttf */; };
+		C6E3C1101E58F70E00327BF3 /* WorkSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1071E58F70E00327BF3 /* WorkSans-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +39,15 @@
 		C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCollectionVC.swift; sourceTree = "<group>"; };
 		C6B008CC1E5894E8001E3C70 /* RandomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCell.swift; sourceTree = "<group>"; };
 		C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallhavenImage.swift; sourceTree = "<group>"; };
+		C6E3C0FF1E58F70E00327BF3 /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
+		C6E3C1001E58F70E00327BF3 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
+		C6E3C1011E58F70E00327BF3 /* WorkSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		C6E3C1021E58F70E00327BF3 /* WorkSans-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraLight.ttf"; sourceTree = "<group>"; };
+		C6E3C1031E58F70E00327BF3 /* WorkSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Light.ttf"; sourceTree = "<group>"; };
+		C6E3C1041E58F70E00327BF3 /* WorkSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Medium.ttf"; sourceTree = "<group>"; };
+		C6E3C1051E58F70E00327BF3 /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
+		C6E3C1061E58F70E00327BF3 /* WorkSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		C6E3C1071E58F70E00327BF3 /* WorkSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +129,7 @@
 		C6B008C81E58942F001E3C70 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C6E3C0FE1E58F70100327BF3 /* Fonts */,
 				C65A94A91E585F3B00229884 /* Assets.xcassets */,
 			);
 			name = Resources;
@@ -123,6 +142,22 @@
 				C65A94AB1E585F3B00229884 /* LaunchScreen.storyboard */,
 			);
 			name = Global;
+			sourceTree = "<group>";
+		};
+		C6E3C0FE1E58F70100327BF3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C6E3C0FF1E58F70E00327BF3 /* WorkSans-Black.ttf */,
+				C6E3C1001E58F70E00327BF3 /* WorkSans-Bold.ttf */,
+				C6E3C1011E58F70E00327BF3 /* WorkSans-ExtraBold.ttf */,
+				C6E3C1021E58F70E00327BF3 /* WorkSans-ExtraLight.ttf */,
+				C6E3C1031E58F70E00327BF3 /* WorkSans-Light.ttf */,
+				C6E3C1041E58F70E00327BF3 /* WorkSans-Medium.ttf */,
+				C6E3C1051E58F70E00327BF3 /* WorkSans-Regular.ttf */,
+				C6E3C1061E58F70E00327BF3 /* WorkSans-SemiBold.ttf */,
+				C6E3C1071E58F70E00327BF3 /* WorkSans-Thin.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		EF5FD0B6123CD1F3DCDDC207 /* Pods */ = {
@@ -198,9 +233,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6E3C10B1E58F70E00327BF3 /* WorkSans-ExtraLight.ttf in Resources */,
+				C6E3C1081E58F70E00327BF3 /* WorkSans-Black.ttf in Resources */,
 				C65A94AD1E585F3B00229884 /* LaunchScreen.storyboard in Resources */,
+				C6E3C10C1E58F70E00327BF3 /* WorkSans-Light.ttf in Resources */,
 				C65A94AA1E585F3B00229884 /* Assets.xcassets in Resources */,
 				C65A94A81E585F3B00229884 /* Main.storyboard in Resources */,
+				C6E3C10A1E58F70E00327BF3 /* WorkSans-ExtraBold.ttf in Resources */,
+				C6E3C10D1E58F70E00327BF3 /* WorkSans-Medium.ttf in Resources */,
+				C6E3C1091E58F70E00327BF3 /* WorkSans-Bold.ttf in Resources */,
+				C6E3C1101E58F70E00327BF3 /* WorkSans-Thin.ttf in Resources */,
+				C6E3C10E1E58F70E00327BF3 /* WorkSans-Regular.ttf in Resources */,
+				C6E3C10F1E58F70E00327BF3 /* WorkSans-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
