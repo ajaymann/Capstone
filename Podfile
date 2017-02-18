@@ -10,7 +10,8 @@ target 'Wallmax' do
 	pod 'SwiftyJSON'
 #	pod 'Sync', '~> 2'
 	pod 'Kingfisher', '~> 3.0'
-
+source 'https://github.com/CocoaPods/Specs.git'
+pod 'GreedoLayout'
   # Pods for Wallmax
 
 end

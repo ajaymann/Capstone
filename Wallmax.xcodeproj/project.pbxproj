@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		5E4FD66FF063A6827B149BFC /* Pods_Wallmax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AEE55175A2FC1D6D4DBBB61 /* Pods_Wallmax.framework */; };
 		C65A94A31E585F3B00229884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A94A21E585F3B00229884 /* AppDelegate.swift */; };
-		C65A94A51E585F3B00229884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65A94A41E585F3B00229884 /* ViewController.swift */; };
 		C65A94A81E585F3B00229884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65A94A61E585F3B00229884 /* Main.storyboard */; };
 		C65A94AA1E585F3B00229884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C65A94A91E585F3B00229884 /* Assets.xcassets */; };
 		C65A94AD1E585F3B00229884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65A94AB1E585F3B00229884 /* LaunchScreen.storyboard */; };
+		C6B008CB1E5894C7001E3C70 /* RandomCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */; };
+		C6B008CD1E5894E8001E3C70 /* RandomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CC1E5894E8001E3C70 /* RandomCell.swift */; };
+		C6B008CF1E589D0A001E3C70 /* WallhavenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +23,13 @@
 		7AEE55175A2FC1D6D4DBBB61 /* Pods_Wallmax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wallmax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65A949F1E585F3B00229884 /* Wallmax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallmax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C65A94A21E585F3B00229884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C65A94A41E585F3B00229884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C65A94A71E585F3B00229884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C65A94A91E585F3B00229884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C65A94AC1E585F3B00229884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C65A94AE1E585F3B00229884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCollectionVC.swift; sourceTree = "<group>"; };
+		C6B008CC1E5894E8001E3C70 /* RandomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCell.swift; sourceTree = "<group>"; };
+		C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallhavenImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,14 +73,56 @@
 		C65A94A11E585F3B00229884 /* Wallmax */ = {
 			isa = PBXGroup;
 			children = (
-				C65A94A21E585F3B00229884 /* AppDelegate.swift */,
-				C65A94A41E585F3B00229884 /* ViewController.swift */,
+				C6B008C91E58943B001E3C70 /* Global */,
+				C6B008C81E58942F001E3C70 /* Resources */,
+				C6B008C71E589426001E3C70 /* Model */,
+				C6B008C61E58941F001E3C70 /* Views */,
+				C6B008C51E589417001E3C70 /* Controllers */,
 				C65A94A61E585F3B00229884 /* Main.storyboard */,
-				C65A94A91E585F3B00229884 /* Assets.xcassets */,
-				C65A94AB1E585F3B00229884 /* LaunchScreen.storyboard */,
 				C65A94AE1E585F3B00229884 /* Info.plist */,
 			);
 			path = Wallmax;
+			sourceTree = "<group>";
+		};
+		C6B008C51E589417001E3C70 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C6B008C61E58941F001E3C70 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C6B008CC1E5894E8001E3C70 /* RandomCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C6B008C71E589426001E3C70 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C6B008C81E58942F001E3C70 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C65A94A91E585F3B00229884 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		C6B008C91E58943B001E3C70 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				C65A94A21E585F3B00229884 /* AppDelegate.swift */,
+				C65A94AB1E585F3B00229884 /* LaunchScreen.storyboard */,
+			);
+			name = Global;
 			sourceTree = "<group>";
 		};
 		EF5FD0B6123CD1F3DCDDC207 /* Pods */ = {
@@ -213,8 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C65A94A51E585F3B00229884 /* ViewController.swift in Sources */,
+				C6B008CF1E589D0A001E3C70 /* WallhavenImage.swift in Sources */,
+				C6B008CD1E5894E8001E3C70 /* RandomCell.swift in Sources */,
 				C65A94A31E585F3B00229884 /* AppDelegate.swift in Sources */,
+				C6B008CB1E5894C7001E3C70 /* RandomCollectionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +385,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0D0680CABAE7B962D1302BAE /* Pods-Wallmax.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = A26X592M5J;
 				INFOPLIST_FILE = Wallmax/Info.plist;
@@ -351,6 +400,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 44FAE9E2C561B112CC3DF855 /* Pods-Wallmax.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = A26X592M5J;
 				INFOPLIST_FILE = Wallmax/Info.plist;

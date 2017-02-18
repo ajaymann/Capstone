@@ -1,0 +1,6 @@
+framework module GreedoLayout {
+  umbrella header "GreedoLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}

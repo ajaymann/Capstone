@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1DE93A359FA21F91DFBE81309E851A4A"
-               BuildableName = "Kingfisher.framework"
-               BlueprintName = "Kingfisher"
+               BlueprintIdentifier = "100D05598B1EBACD70E33B1BD433927E"
+               BuildableName = "GreedoLayout.framework"
+               BlueprintName = "GreedoLayout"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1DE93A359FA21F91DFBE81309E851A4A"
-            BuildableName = "Kingfisher.framework"
-            BlueprintName = "Kingfisher"
+            BlueprintIdentifier = "100D05598B1EBACD70E33B1BD433927E"
+            BuildableName = "GreedoLayout.framework"
+            BlueprintName = "GreedoLayout"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
