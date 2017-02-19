@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -58,17 +59,17 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uCv-wY-xmr">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7d-dT-ZxI">
-                                            <rect key="frame" x="0.0" y="10" width="50" height="40"/>
+                                        <visualEffectView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7d-dT-ZxI">
+                                            <rect key="frame" x="-0.5" y="19" width="51" height="22"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="knE-yn-8gk">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEj-fo-4rW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="Zyi-Ez-YLR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="51" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         </view>
                                                         <vibrancyEffect>
@@ -77,13 +78,15 @@
                                                     </visualEffectView>
                                                 </subviews>
                                             </view>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="Zfe-YO-1dh"/>
-                                            </constraints>
                                             <blurEffect style="dark"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </visualEffectView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLk-ec-XKG">
-                                            <rect key="frame" x="2" y="20.5" width="46" height="20"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLk-ec-XKG">
+                                            <rect key="frame" x="2" y="20" width="46" height="20"/>
                                             <fontDescription key="fontDescription" name="WorkSans-SemiBold" family="Work Sans" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -91,15 +94,16 @@
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="W7d-dT-ZxI" firstAttribute="width" secondItem="KLk-ec-XKG" secondAttribute="width" multiplier="1.1" id="GNS-3w-CE2"/>
                                     <constraint firstItem="uCv-wY-xmr" firstAttribute="leading" secondItem="GiI-ln-Gkv" secondAttribute="leading" id="IL0-TY-Qze"/>
                                     <constraint firstAttribute="bottom" secondItem="uCv-wY-xmr" secondAttribute="bottom" id="UVj-fZ-jVe"/>
                                     <constraint firstItem="KLk-ec-XKG" firstAttribute="centerX" secondItem="W7d-dT-ZxI" secondAttribute="centerX" id="ZOQ-9b-3pv"/>
                                     <constraint firstItem="KLk-ec-XKG" firstAttribute="centerY" secondItem="W7d-dT-ZxI" secondAttribute="centerY" id="bC2-er-Cek"/>
-                                    <constraint firstItem="W7d-dT-ZxI" firstAttribute="leading" secondItem="GiI-ln-Gkv" secondAttribute="leading" id="hrf-Ie-xDe"/>
-                                    <constraint firstAttribute="trailing" secondItem="W7d-dT-ZxI" secondAttribute="trailing" id="jLU-gg-BDe"/>
+                                    <constraint firstItem="W7d-dT-ZxI" firstAttribute="height" secondItem="KLk-ec-XKG" secondAttribute="height" multiplier="1.1" id="iox-0h-S20"/>
                                     <constraint firstAttribute="trailing" secondItem="uCv-wY-xmr" secondAttribute="trailing" id="oHM-bY-DZ1"/>
+                                    <constraint firstAttribute="bottom" secondItem="KLk-ec-XKG" secondAttribute="bottom" constant="10" id="qkZ-Ds-q8M"/>
+                                    <constraint firstItem="KLk-ec-XKG" firstAttribute="centerX" secondItem="GiI-ln-Gkv" secondAttribute="centerX" id="sCW-oe-2Qb"/>
                                     <constraint firstItem="uCv-wY-xmr" firstAttribute="top" secondItem="GiI-ln-Gkv" secondAttribute="top" id="vwd-Sh-7N0"/>
-                                    <constraint firstAttribute="bottom" secondItem="W7d-dT-ZxI" secondAttribute="bottom" id="vxY-tJ-1fh"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="uCv-wY-xmr" id="9fJ-7p-66F"/>

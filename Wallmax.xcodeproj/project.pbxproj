@@ -15,6 +15,7 @@
 		C6B008CB1E5894C7001E3C70 /* RandomCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */; };
 		C6B008CD1E5894E8001E3C70 /* RandomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CC1E5894E8001E3C70 /* RandomCell.swift */; };
 		C6B008CF1E589D0A001E3C70 /* WallhavenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */; };
+		C6C90B951E5A0C590013F9FE /* WallhavenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C90B941E5A0C590013F9FE /* WallhavenHelper.swift */; };
 		C6E3C1081E58F70E00327BF3 /* WorkSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C0FF1E58F70E00327BF3 /* WorkSans-Black.ttf */; };
 		C6E3C1091E58F70E00327BF3 /* WorkSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1001E58F70E00327BF3 /* WorkSans-Bold.ttf */; };
 		C6E3C10A1E58F70E00327BF3 /* WorkSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1011E58F70E00327BF3 /* WorkSans-ExtraBold.ttf */; };
@@ -24,6 +25,7 @@
 		C6E3C10E1E58F70E00327BF3 /* WorkSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1051E58F70E00327BF3 /* WorkSans-Regular.ttf */; };
 		C6E3C10F1E58F70E00327BF3 /* WorkSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1061E58F70E00327BF3 /* WorkSans-SemiBold.ttf */; };
 		C6E3C1101E58F70E00327BF3 /* WorkSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6E3C1071E58F70E00327BF3 /* WorkSans-Thin.ttf */; };
+		C6E3C1131E598E5F00327BF3 /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6E3C1121E598E5F00327BF3 /* DeviceType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,7 @@
 		C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCollectionVC.swift; sourceTree = "<group>"; };
 		C6B008CC1E5894E8001E3C70 /* RandomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCell.swift; sourceTree = "<group>"; };
 		C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallhavenImage.swift; sourceTree = "<group>"; };
+		C6C90B941E5A0C590013F9FE /* WallhavenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallhavenHelper.swift; sourceTree = "<group>"; };
 		C6E3C0FF1E58F70E00327BF3 /* WorkSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.ttf"; sourceTree = "<group>"; };
 		C6E3C1001E58F70E00327BF3 /* WorkSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.ttf"; sourceTree = "<group>"; };
 		C6E3C1011E58F70E00327BF3 /* WorkSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 		C6E3C1051E58F70E00327BF3 /* WorkSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.ttf"; sourceTree = "<group>"; };
 		C6E3C1061E58F70E00327BF3 /* WorkSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		C6E3C1071E58F70E00327BF3 /* WorkSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Thin.ttf"; sourceTree = "<group>"; };
+		C6E3C1121E598E5F00327BF3 /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 		C65A94A11E585F3B00229884 /* Wallmax */ = {
 			isa = PBXGroup;
 			children = (
+				C6E3C1111E598E4D00327BF3 /* Helper */,
 				C6B008C91E58943B001E3C70 /* Global */,
 				C6B008C81E58942F001E3C70 /* Resources */,
 				C6B008C71E589426001E3C70 /* Model */,
@@ -158,6 +163,15 @@
 				C6E3C1071E58F70E00327BF3 /* WorkSans-Thin.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		C6E3C1111E598E4D00327BF3 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C6E3C1121E598E5F00327BF3 /* DeviceType.swift */,
+				C6C90B941E5A0C590013F9FE /* WallhavenHelper.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 		EF5FD0B6123CD1F3DCDDC207 /* Pods */ = {
@@ -303,10 +317,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6C90B951E5A0C590013F9FE /* WallhavenHelper.swift in Sources */,
 				C6B008CF1E589D0A001E3C70 /* WallhavenImage.swift in Sources */,
 				C6B008CD1E5894E8001E3C70 /* RandomCell.swift in Sources */,
 				C65A94A31E585F3B00229884 /* AppDelegate.swift in Sources */,
 				C6B008CB1E5894C7001E3C70 /* RandomCollectionVC.swift in Sources */,
+				C6E3C1131E598E5F00327BF3 /* DeviceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

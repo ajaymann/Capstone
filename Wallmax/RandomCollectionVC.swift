@@ -15,6 +15,7 @@ let imagePath = "//figure"
 
 var wallhavenImages = [WallhavenImage]()
 var currentPage = 1
+var phoneType = Display.typeIsLike
 
 class RandomCollectionVC: UICollectionViewController {
 
@@ -41,7 +42,12 @@ class RandomCollectionVC: UICollectionViewController {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: (self.tabBarController?.tabBar.frame.height)!, right: 0)
-        layout.itemSize = CGSize(width: width , height: width / 1.5)
+        if phoneType == .iphone5 {
+            layout.itemSize = CGSize(width: width , height: width / 1.5)
+        } else if phoneType == .iphone7 || phoneType == .iphone7plus {
+            layout.itemSize = CGSize(width: width/2 , height: width / 3)
+        }
+        
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0.2
         randomCollectionView.collectionViewLayout = layout
@@ -49,19 +55,15 @@ class RandomCollectionVC: UICollectionViewController {
     
     func parseHTML(html: String) {
         if let doc = Kanna.HTML(html, encoding: String.Encoding.utf8) {
-            
             for node in doc.xpath(imagePath) {
-                
-                
                 if let thumbImageURL = node.xpath("img[@class='lazyload']/@data-src").makeIterator().next(),
                     let largeImageURL = node.xpath("a[@class='preview']/@href").makeIterator().next(),
-                    let resolutionText = node.text
+                    let resolution = node.css("span").makeIterator().next()
                     {
-                    
                     let wallhavenImage = WallhavenImage()
                     wallhavenImage.thumbURL = thumbImageURL.text
                     wallhavenImage.fullSizeURL = largeImageURL.text
-                    wallhavenImage.resolution = resolutionText.substring(to: resolutionText.index(before: resolutionText.endIndex))
+                    wallhavenImage.resolution = resolution.text
                     wallhavenImages.append(wallhavenImage)
                     randomCollectionView.reloadData()
                 }
