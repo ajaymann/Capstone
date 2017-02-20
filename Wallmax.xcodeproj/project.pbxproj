@@ -12,6 +12,7 @@
 		C65A94A81E585F3B00229884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65A94A61E585F3B00229884 /* Main.storyboard */; };
 		C65A94AA1E585F3B00229884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C65A94A91E585F3B00229884 /* Assets.xcassets */; };
 		C65A94AD1E585F3B00229884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65A94AB1E585F3B00229884 /* LaunchScreen.storyboard */; };
+		C67B07FD1E5A0FC700C622E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67B07FC1E5A0FC700C622E3 /* Constants.swift */; };
 		C6B008CB1E5894C7001E3C70 /* RandomCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */; };
 		C6B008CD1E5894E8001E3C70 /* RandomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CC1E5894E8001E3C70 /* RandomCell.swift */; };
 		C6B008CF1E589D0A001E3C70 /* WallhavenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */; };
@@ -38,6 +39,7 @@
 		C65A94A91E585F3B00229884 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C65A94AC1E585F3B00229884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C65A94AE1E585F3B00229884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C67B07FC1E5A0FC700C622E3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCollectionVC.swift; sourceTree = "<group>"; };
 		C6B008CC1E5894E8001E3C70 /* RandomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCell.swift; sourceTree = "<group>"; };
 		C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallhavenImage.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				C65A94A21E585F3B00229884 /* AppDelegate.swift */,
 				C65A94AB1E585F3B00229884 /* LaunchScreen.storyboard */,
+				C67B07FC1E5A0FC700C622E3 /* Constants.swift */,
 			);
 			name = Global;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				C6B008CF1E589D0A001E3C70 /* WallhavenImage.swift in Sources */,
 				C6B008CD1E5894E8001E3C70 /* RandomCell.swift in Sources */,
 				C65A94A31E585F3B00229884 /* AppDelegate.swift in Sources */,
+				C67B07FD1E5A0FC700C622E3 /* Constants.swift in Sources */,
 				C6B008CB1E5894C7001E3C70 /* RandomCollectionVC.swift in Sources */,
 				C6E3C1131E598E5F00327BF3 /* DeviceType.swift in Sources */,
 			);

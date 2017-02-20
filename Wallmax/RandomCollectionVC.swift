@@ -31,9 +31,18 @@ class RandomCollectionVC: UICollectionViewController {
     }
     
     func loadNewData(pageNum: Int) {
-        Alamofire.request("https://alpha.wallhaven.cc/latest/?page=\(pageNum)").responseString { (response) in
-            if let html = response.result.value {
-                self.parseHTML(html: html)
+        WallhavenHelper.loadNewData(ofType: "random", withPageNum: currentPage) { (success, images, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            if success {
+                if let images = images {
+                    wallhavenImages.append(contentsOf: images)
+                    DispatchQueue.main.async {
+                        self.randomCollectionView.reloadData()
+                    }
+                }
             }
         }
     }
@@ -43,33 +52,17 @@ class RandomCollectionVC: UICollectionViewController {
         let width = UIScreen.main.bounds.width
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: (self.tabBarController?.tabBar.frame.height)!, right: 0)
         if phoneType == .iphone5 {
-            layout.itemSize = CGSize(width: width , height: width / 1.5)
+            layout.itemSize = CGSize(width: width/2 - 2 , height: width / 3)
         } else if phoneType == .iphone7 || phoneType == .iphone7plus {
-            layout.itemSize = CGSize(width: width/2 , height: width / 3)
+            layout.itemSize = CGSize(width: width/2 - 2 , height: width / 3)
         }
         
-        layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0.2
+        layout.minimumInteritemSpacing = 2
+        layout.minimumLineSpacing = 2
         randomCollectionView.collectionViewLayout = layout
     }
     
-    func parseHTML(html: String) {
-        if let doc = Kanna.HTML(html, encoding: String.Encoding.utf8) {
-            for node in doc.xpath(imagePath) {
-                if let thumbImageURL = node.xpath("img[@class='lazyload']/@data-src").makeIterator().next(),
-                    let largeImageURL = node.xpath("a[@class='preview']/@href").makeIterator().next(),
-                    let resolution = node.css("span").makeIterator().next()
-                    {
-                    let wallhavenImage = WallhavenImage()
-                    wallhavenImage.thumbURL = thumbImageURL.text
-                    wallhavenImage.fullSizeURL = largeImageURL.text
-                    wallhavenImage.resolution = resolution.text
-                    wallhavenImages.append(wallhavenImage)
-                    randomCollectionView.reloadData()
-                }
-            }
-        }
-    }
+    
 
     // MARK: UICollectionViewDataSource
 
@@ -85,6 +78,8 @@ class RandomCollectionVC: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RandomCell
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
         cell.image = wallhavenImages[indexPath.row]
         return cell
     }
@@ -101,4 +96,7 @@ class RandomCollectionVC: UICollectionViewController {
             loadNewData(pageNum: currentPage)
         }
     }
+    
+    
+   
 }

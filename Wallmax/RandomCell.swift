@@ -27,4 +27,8 @@ class RandomCell: UICollectionViewCell {
         }
         resolutionLabel.text = image.resolution
     }
+    
+    override func prepareForReuse() {
+        print("reuseIng")
+    }
 }
