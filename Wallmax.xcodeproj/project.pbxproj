@@ -13,6 +13,7 @@
 		C65A94AA1E585F3B00229884 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C65A94A91E585F3B00229884 /* Assets.xcassets */; };
 		C65A94AD1E585F3B00229884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C65A94AB1E585F3B00229884 /* LaunchScreen.storyboard */; };
 		C67B07FD1E5A0FC700C622E3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67B07FC1E5A0FC700C622E3 /* Constants.swift */; };
+		C6A37FAD1E5B45F6009313B9 /* loadingGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C6A37FAC1E5B45F6009313B9 /* loadingGif.gif */; };
 		C6B008CB1E5894C7001E3C70 /* RandomCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */; };
 		C6B008CD1E5894E8001E3C70 /* RandomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CC1E5894E8001E3C70 /* RandomCell.swift */; };
 		C6B008CF1E589D0A001E3C70 /* WallhavenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */; };
@@ -40,6 +41,7 @@
 		C65A94AC1E585F3B00229884 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C65A94AE1E585F3B00229884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C67B07FC1E5A0FC700C622E3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C6A37FAC1E5B45F6009313B9 /* loadingGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loadingGif.gif; sourceTree = "<group>"; };
 		C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCollectionVC.swift; sourceTree = "<group>"; };
 		C6B008CC1E5894E8001E3C70 /* RandomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCell.swift; sourceTree = "<group>"; };
 		C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallhavenImage.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 		C65A94A11E585F3B00229884 /* Wallmax */ = {
 			isa = PBXGroup;
 			children = (
+				C6A37FAC1E5B45F6009313B9 /* loadingGif.gif */,
 				C6E3C1111E598E4D00327BF3 /* Helper */,
 				C6B008C91E58943B001E3C70 /* Global */,
 				C6B008C81E58942F001E3C70 /* Resources */,
@@ -254,6 +257,7 @@
 				C6E3C1081E58F70E00327BF3 /* WorkSans-Black.ttf in Resources */,
 				C65A94AD1E585F3B00229884 /* LaunchScreen.storyboard in Resources */,
 				C6E3C10C1E58F70E00327BF3 /* WorkSans-Light.ttf in Resources */,
+				C6A37FAD1E5B45F6009313B9 /* loadingGif.gif in Resources */,
 				C65A94AA1E585F3B00229884 /* Assets.xcassets in Resources */,
 				C65A94A81E585F3B00229884 /* Main.storyboard in Resources */,
 				C6E3C10A1E58F70E00327BF3 /* WorkSans-ExtraBold.ttf in Resources */,
