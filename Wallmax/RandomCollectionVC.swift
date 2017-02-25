@@ -19,7 +19,7 @@ var currentPage = 1
 var phoneType = Display.typeIsLike
 
 class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, RandomCellDelegate {
-
+    
     @IBOutlet weak var buttonHoldingBlurView: UIVisualEffectView!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var scrollableImageWidthConstraint: NSLayoutConstraint!
@@ -38,20 +38,25 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func loadNewData(pageNum: Int) {
-        WallhavenHelper.loadNewData(ofType: "random", withPageNum: currentPage) { (success, images, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            
-            if success {
-                if let images = images {
-                    wallhavenRandomImages.append(contentsOf: images)
-                    DispatchQueue.main.async {
-                        self.randomCollectionView.reloadData()
+        if isInternetAvailable() {
+            WallhavenHelper.loadNewData(ofType: "random", withPageNum: currentPage) { (success, images, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                if success {
+                    if let images = images {
+                        wallhavenRandomImages.append(contentsOf: images)
+                        DispatchQueue.main.async {
+                            self.randomCollectionView.reloadData()
+                        }
                     }
                 }
             }
+        } else {
+            self.alertify("Internet not available. Please try agin later.")
         }
+        
     }
     
     func configUI() {
@@ -70,19 +75,19 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
-
+    
     // MARK: UICollectionViewDataSource
-
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
-
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return wallhavenRandomImages.count
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RandomCell
         cell.delegate = self
@@ -91,7 +96,7 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
         cell.image = wallhavenRandomImages[indexPath.row]
         return cell
     }
-
+    
     // MARK: UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -102,42 +107,46 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func downloadButtonTappedFor(cell: RandomCell) {
-        guard let id = cell.image?.id else { return }
-        let url = URL(string: "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-\(id).jpg")
-        
-        ImageDownloader.default.downloadImage(with: url!, options: [], progressBlock: {
-            receivedSize, totalSize in
-            let percentage = (Float(receivedSize) / Float(totalSize)) * 100.0
-            self.progressView.isHidden = false
-            self.progressView.setProgress(percentage, animated: true)
-        }
-        ) {
-            (image, error, url, data) in
-            if let error = error {
-                let url = URL(string: "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-\(id).png")
-                ImageDownloader.default.downloadImage(with: url!, options: [], progressBlock: {
-                    receivedSize, totalSize in
-                    let percentage = (Float(receivedSize) / Float(totalSize)) * 100.0
-                    self.progressView.isHidden = false
-                    self.progressView.setProgress(percentage, animated: true)
-                }
-                ) {
-                    (image, error, url, data) in
-                    if let image = image {
-                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                            self.progressView.setProgress(0.0, animated: false)
-                        })
+        if isInternetAvailable() {
+            guard let id = cell.image?.id else { return }
+            let url = URL(string: "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-\(id).jpg")
+            
+            ImageDownloader.default.downloadImage(with: url!, options: [], progressBlock: {
+                receivedSize, totalSize in
+                let percentage = (Float(receivedSize) / Float(totalSize)) * 100.0
+                self.progressView.isHidden = false
+                self.progressView.setProgress(percentage, animated: true)
+            }
+            ) {
+                (image, error, url, data) in
+                if let _ = error {
+                    let url = URL(string: "https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-\(id).png")
+                    ImageDownloader.default.downloadImage(with: url!, options: [], progressBlock: {
+                        receivedSize, totalSize in
+                        let percentage = (Float(receivedSize) / Float(totalSize)) * 100.0
+                        self.progressView.isHidden = false
+                        self.progressView.setProgress(percentage, animated: true)
                     }
+                    ) {
+                        (image, error, url, data) in
+                        if let image = image {
+                            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                                self.progressView.setProgress(0.0, animated: false)
+                            })
+                        }
+                    }
+                    return
                 }
-                return
+                if let image = image {
+                    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
+                        self.progressView.setProgress(0.0, animated: false)
+                    })
+                }
             }
-            if let image = image {
-                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0, execute: {
-                    self.progressView.setProgress(0.0, animated: false)
-                })
-            }
+        } else {
+            self.alertify("Internet not available. Please try agin later.")
         }
     }
     
@@ -156,12 +165,13 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func imageTappedFor(cell: RandomCell) {
-        buttonHoldingBlurView.isHidden = false
-        self.imageView.image = nil
-        self.imageView.kf.indicatorType = .activity
-        self.scrollableImageWidthConstraint.constant = self.view.frame.width
-        
-        if let url = URL(string: (cell.image?.fullSizePageURL)!) {
+        if isInternetAvailable() {
+            buttonHoldingBlurView.isHidden = false
+            self.imageView.image = nil
+            self.imageView.kf.indicatorType = .activity
+            self.scrollableImageWidthConstraint.constant = self.view.frame.width
+            
+            if let url = URL(string: (cell.image?.fullSizePageURL)!) {
                 Alamofire.request(url).responseString(completionHandler: { (response) in
                     guard let html = response.result.value else { return }
                     WallhavenHelper.parsePageForSinglePhoto(inHtml: html, completion: { (success, wallhavenImages, error) in
@@ -186,20 +196,22 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
                         }
                     })
                 })
-        }
-        
-        
-        self.tabBarController?.tabBar.isHidden = true
-        blurView.alpha = 1
-        UIView.animate(withDuration: 0.8, animations: { 
-            self.view.layoutIfNeeded()
-        }) { (_) in
+            }
             
-            self.imageScrollView.alpha = 1
-            UIView.animate(withDuration: 0.4, animations: { 
+            
+            self.tabBarController?.tabBar.isHidden = true
+            blurView.alpha = 1
+            UIView.animate(withDuration: 0.8, animations: {
                 self.view.layoutIfNeeded()
-            })
+            }) { (_) in
+                
+                self.imageScrollView.alpha = 1
+                UIView.animate(withDuration: 0.4, animations: {
+                    self.view.layoutIfNeeded()
+                })
+            }
+        } else {
+            self.alertify("Internet not available. Please try agin later.")
         }
     }
-   
 }
