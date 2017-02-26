@@ -67,49 +67,16 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RNj-j9-ykU">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnS-Rh-uIv">
-                                                    <rect key="frame" x="164" y="100" width="46" height="30"/>
-                                                    <connections>
-                                                        <action selector="imageTapped:" destination="lRv-iZ-XCI" eventType="touchUpInside" id="28r-Qs-a4d"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xF-4T-4V9">
-                                                    <rect key="frame" x="335" y="191" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="FT7-Qg-uHA"/>
-                                                        <constraint firstAttribute="width" constant="30" id="aEk-sc-tdx"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="10"/>
-                                                    <state key="normal" title="Remove"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="4"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                            <integer key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="removeTapped:" destination="lRv-iZ-XCI" eventType="touchUpInside" id="Bd5-fq-nDZ"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="RNj-j9-ykU" firstAttribute="leading" secondItem="lRv-iZ-XCI" secondAttribute="leading" id="Aa3-qa-zT9"/>
                                             <constraint firstItem="RNj-j9-ykU" firstAttribute="top" secondItem="lRv-iZ-XCI" secondAttribute="top" id="G3t-X6-8Q4"/>
-                                            <constraint firstAttribute="trailing" secondItem="3xF-4T-4V9" secondAttribute="trailing" constant="10" id="HCX-fO-ilv"/>
                                             <constraint firstAttribute="trailing" secondItem="RNj-j9-ykU" secondAttribute="trailing" id="HMK-LQ-NMB"/>
-                                            <constraint firstItem="SnS-Rh-uIv" firstAttribute="centerY" secondItem="RNj-j9-ykU" secondAttribute="centerY" id="Zux-Ch-9X4"/>
-                                            <constraint firstItem="SnS-Rh-uIv" firstAttribute="height" secondItem="RNj-j9-ykU" secondAttribute="height" id="aAY-15-xep"/>
-                                            <constraint firstItem="SnS-Rh-uIv" firstAttribute="width" secondItem="RNj-j9-ykU" secondAttribute="width" id="enw-ef-NbU"/>
-                                            <constraint firstAttribute="bottom" secondItem="3xF-4T-4V9" secondAttribute="bottom" constant="10" id="n8I-pG-qAb"/>
-                                            <constraint firstItem="SnS-Rh-uIv" firstAttribute="centerX" secondItem="RNj-j9-ykU" secondAttribute="centerX" id="nRX-wU-NJC"/>
                                             <constraint firstAttribute="bottom" secondItem="RNj-j9-ykU" secondAttribute="bottom" id="sJ0-UC-qV6"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="RNj-j9-ykU" id="vwc-T7-Gwq"/>
-                                            <outlet property="removeButton" destination="3xF-4T-4V9" id="lug-cJ-0Kv"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
