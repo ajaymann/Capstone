@@ -34,6 +34,7 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(showNetworkAlert), name: NSNotification.Name("NoInternet"), object: nil)
         if isInternetAvailable() {
             loadNewData(pageNum: currentPage)
         } else {
@@ -44,6 +45,10 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func showNetworkAlert(notification: Notification) {
+        self.alertify("Internet not available. Please try agin later.")
     }
     
     func loadNewData(pageNum: Int) {
