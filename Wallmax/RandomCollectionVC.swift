@@ -30,13 +30,15 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     
     var wallhavenRandomImages = [WallhavenImage]()
     var currentPage = 1
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
         NotificationCenter.default.addObserver(self, selector: #selector(showNetworkAlert), name: NSNotification.Name("NoInternet"), object: nil)
         if isInternetAvailable() {
-            loadNewData(pageNum: currentPage)
+            loadNewData(pageNum: currentPage) {_ in
+            }
         } else {
             self.alertify("Internet not available. Please try agin later.")
         }
@@ -51,16 +53,22 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
         self.alertify("Internet not available. Please try agin later.")
     }
     
-    func loadNewData(pageNum: Int) {
+    func loadNewData(pageNum: Int, completion: @escaping (Bool) -> ()) {
         if isInternetAvailable() {
             WallhavenHelper.loadNewData(ofType: "random", withPageNum: currentPage) { (success, images, error) in
                 if let error = error {
+                    completion(false)
                 }
                 
                 if success {
                     if let images = images {
-                        self.wallhavenRandomImages.append(contentsOf: images)
+                        if self.wallhavenRandomImages.count == 0 {
+                           self.wallhavenRandomImages = images
+                        }else {
+                            self.wallhavenRandomImages.append(contentsOf: images)
+                        }
                         DispatchQueue.main.async {
+                            completion(true)
                             self.randomCollectionView.reloadData()
                         }
                     }
@@ -73,9 +81,13 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func configUI() {
+        
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        randomCollectionView.addSubview(refreshControl)
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: (self.tabBarController?.tabBar.frame.height)!, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: (self.tabBarController?.tabBar.frame.height)!, right: 0)
         if phoneType == .iphone5 {
             layout.itemSize = CGSize(width: width , height: width / 1.5)
         } else if phoneType == .iphone7 || phoneType == .iphone7plus {
@@ -87,13 +99,21 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
         randomCollectionView.collectionViewLayout = layout
     }
     
+    func refresh(refreshControl: UIRefreshControl) {
+        currentPage = 1
+        self.wallhavenRandomImages.removeAll()
+        loadNewData(pageNum: currentPage) { (success) in
+            if success {
+                refreshControl.endRefreshing()
+            } else {
+                refreshControl.endRefreshing()
+            }
+        }
+    }
+    
     
     
     // MARK: UICollectionViewDataSource
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -103,13 +123,15 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! RandomCell
-        cell.delegate = self
-        cell.layer.shouldRasterize = true
-        cell.layer.rasterizationScale = UIScreen.main.scale
-        cell.likeButton.backgroundColor = UIColor.clear
-        cell.likeButton.isEnabled = true
-        cell.likeButton.setTitle("Like", for: .normal)
-        cell.image = wallhavenRandomImages[indexPath.row]
+        if !self.refreshControl.isRefreshing {
+            cell.delegate = self
+            cell.layer.shouldRasterize = true
+            cell.layer.rasterizationScale = UIScreen.main.scale
+            cell.likeButton.backgroundColor = UIColor.clear
+            cell.likeButton.isEnabled = true
+            cell.likeButton.setTitle("Like", for: .normal)
+            cell.image = wallhavenRandomImages[indexPath.row]
+        }
         return cell
     }
     
@@ -118,7 +140,9 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == (wallhavenRandomImages.count - 5) {
             currentPage += 1
-            loadNewData(pageNum: currentPage)
+            loadNewData(pageNum: currentPage) { _ in
+                
+            }
         }
     }
     
@@ -193,7 +217,7 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
                     WallhavenHelper.parsePageForSinglePhoto(inHtml: html, completion: { (success, wallhavenImages, error) in
                         
                         if let error = error {
-                            print(error)
+                            self.alertify(error.localizedDescription)
                         }
                         
                         if success {
@@ -202,9 +226,11 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
                                 
                                 self.imageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (image, error, cacheType, url) in
                                     
-                                    let relativeImageWidth = ((image?.size.width)! / (image?.size.height)!) * self.imageView.frame.height
-                                    
-                                    self.scrollableImageWidthConstraint.constant = relativeImageWidth
+                                    if let image = image {
+                                        let relativeImageWidth = ((image.size.width) / (image.size.height)) * self.imageView.frame.height
+                                        
+                                        self.scrollableImageWidthConstraint.constant = relativeImageWidth
+                                    }
                                     
                                 })
                                 

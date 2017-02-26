@@ -17,7 +17,6 @@
 		C683F9E81E62E92C006D41B8 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683F9E71E62E92C006D41B8 /* FavouriteCell.swift */; };
 		C683F9EB1E62EC89006D41B8 /* Wallmax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C683F9E91E62EC89006D41B8 /* Wallmax.xcdatamodeld */; };
 		C683F9ED1E62F845006D41B8 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C683F9EC1E62F845006D41B8 /* CoreDataStack.swift */; };
-		C6A37FAD1E5B45F6009313B9 /* loadingGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C6A37FAC1E5B45F6009313B9 /* loadingGif.gif */; };
 		C6B008CB1E5894C7001E3C70 /* RandomCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */; };
 		C6B008CD1E5894E8001E3C70 /* RandomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CC1E5894E8001E3C70 /* RandomCell.swift */; };
 		C6B008CF1E589D0A001E3C70 /* WallhavenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */; };
@@ -49,7 +48,6 @@
 		C683F9E71E62E92C006D41B8 /* FavouriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
 		C683F9EA1E62EC89006D41B8 /* Wallmax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wallmax.xcdatamodel; sourceTree = "<group>"; };
 		C683F9EC1E62F845006D41B8 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		C6A37FAC1E5B45F6009313B9 /* loadingGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loadingGif.gif; sourceTree = "<group>"; };
 		C6B008CA1E5894C7001E3C70 /* RandomCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCollectionVC.swift; sourceTree = "<group>"; };
 		C6B008CC1E5894E8001E3C70 /* RandomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomCell.swift; sourceTree = "<group>"; };
 		C6B008CE1E589D0A001E3C70 /* WallhavenImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallhavenImage.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 		C65A94A11E585F3B00229884 /* Wallmax */ = {
 			isa = PBXGroup;
 			children = (
-				C6A37FAC1E5B45F6009313B9 /* loadingGif.gif */,
 				C6E3C1111E598E4D00327BF3 /* Helper */,
 				C6B008C91E58943B001E3C70 /* Global */,
 				C6B008C81E58942F001E3C70 /* Resources */,
@@ -269,7 +266,6 @@
 				C6E3C1081E58F70E00327BF3 /* WorkSans-Black.ttf in Resources */,
 				C65A94AD1E585F3B00229884 /* LaunchScreen.storyboard in Resources */,
 				C6E3C10C1E58F70E00327BF3 /* WorkSans-Light.ttf in Resources */,
-				C6A37FAD1E5B45F6009313B9 /* loadingGif.gif in Resources */,
 				C65A94AA1E585F3B00229884 /* Assets.xcassets in Resources */,
 				C65A94A81E585F3B00229884 /* Main.storyboard in Resources */,
 				C6E3C10A1E58F70E00327BF3 /* WorkSans-ExtraBold.ttf in Resources */,
