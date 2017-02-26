@@ -37,11 +37,11 @@ public class WallhavenHelper {
                     let largeImageURL = node.xpath("a[@class='preview']/@href").makeIterator().next(),
                     let resolution = node.css("span").makeIterator().next(),
                     let wallpaperID = node.xpath("@data-wallpaper-id").makeIterator().next() {
-                    let wallhavenImage = WallhavenImage()
-                    wallhavenImage.thumbURL = thumbImageURL.text
-                    wallhavenImage.id = wallpaperID.text
-                    wallhavenImage.fullSizePageURL = largeImageURL.text
-                    wallhavenImage.resolution = resolution.text
+                    let wallhavenImage = WallhavenImage(id: wallpaperID.text,thumbURL: thumbImageURL.text, fullSizePageURL: largeImageURL.text, fullSizeURL: nil, resolution : resolution.text)
+//                    wallhavenImage.thumbURL = thumbImageURL.text
+//                    wallhavenImage.id = wallpaperID.text
+//                    wallhavenImage.fullSizePageURL = largeImageURL.text
+//                    wallhavenImage.resolution = resolution.text
                     wallhavenImages.append(wallhavenImage)
                 } else {
                     completion(false, nil, NSError(domain: "Could not find pictures", code: 0, userInfo: nil))
@@ -58,9 +58,9 @@ public class WallhavenHelper {
             var wallhavenImages = [WallhavenImage]()
             
             for node in doc.css("#wallpaper") {
-                let wallhavenImage = WallhavenImage()
+                
                 if let url = node["src"] {
-                wallhavenImage.fullSizeURL = "https:" + url
+                let wallhavenImage = WallhavenImage(id: nil ,thumbURL: nil, fullSizePageURL: nil, fullSizeURL: "https:" + url, resolution : nil)
                 wallhavenImages.append(wallhavenImage)
                 completion(true, wallhavenImages, nil)
                 } else {

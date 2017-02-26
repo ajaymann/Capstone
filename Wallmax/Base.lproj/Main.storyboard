@@ -54,7 +54,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RandomCell" id="5aI-pH-4M8" customClass="RandomCell" customModule="Wallmax" customModuleProvider="target">
-                                        <rect key="frame" x="0.5" y="0.0" width="374" height="201"/>
+                                        <rect key="frame" x="1" y="0.0" width="374" height="201"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="201"/>
@@ -64,7 +64,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="201"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHn-PF-FKy">
-                                                    <rect key="frame" x="166" y="174" width="44" height="21"/>
+                                                    <rect key="frame" x="165.5" y="174" width="44" height="21"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Light" family="Work Sans" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -231,7 +231,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNf-Xx-SMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="530.39999999999998" y="-662.51874062968523"/>
+            <point key="canvasLocation" x="535" y="-433"/>
         </scene>
     </scenes>
     <resources>

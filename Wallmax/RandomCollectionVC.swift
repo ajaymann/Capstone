@@ -30,7 +30,12 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
-        loadNewData(pageNum: currentPage)
+        if isInternetAvailable() {
+            loadNewData(pageNum: currentPage)
+        } else {
+            self.alertify("Internet not available. Please try agin later.")
+        }
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -41,7 +46,6 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
         if isInternetAvailable() {
             WallhavenHelper.loadNewData(ofType: "random", withPageNum: currentPage) { (success, images, error) in
                 if let error = error {
-                    print(error.localizedDescription)
                 }
                 
                 if success {

@@ -8,10 +8,10 @@
 
 import Foundation
 
-class WallhavenImage : NSObject {
-    var id: String?
-    var thumbURL : String?
-    var fullSizePageURL: String?
-    var fullSizeURL: String?
-    var resolution : String?
+struct WallhavenImage {
+    let id: String?
+    let thumbURL : String?
+    let fullSizePageURL: String?
+    let fullSizeURL: String?
+    let resolution : String?
 }
