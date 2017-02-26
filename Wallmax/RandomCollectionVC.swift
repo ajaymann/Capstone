@@ -8,14 +8,14 @@
 
 import UIKit
 import Alamofire
+import CoreData
 import Kingfisher
 import Kanna
 
 private let reuseIdentifier = "RandomCell"
 let imagePath = "//figure"
 
-var wallhavenRandomImages = [WallhavenImage]()
-var currentPage = 1
+
 var phoneType = Display.typeIsLike
 
 class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, RandomCellDelegate {
@@ -27,6 +27,10 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet var randomCollectionView: UICollectionView!
     @IBOutlet weak var imageView: UIImageView!
+    
+    var wallhavenRandomImages = [WallhavenImage]()
+    var currentPage = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configUI()
@@ -50,7 +54,7 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 if success {
                     if let images = images {
-                        wallhavenRandomImages.append(contentsOf: images)
+                        self.wallhavenRandomImages.append(contentsOf: images)
                         DispatchQueue.main.async {
                             self.randomCollectionView.reloadData()
                         }
@@ -97,6 +101,9 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
         cell.delegate = self
         cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.main.scale
+        cell.likeButton.backgroundColor = UIColor.clear
+        cell.likeButton.isEnabled = true
+        cell.likeButton.setTitle("Like", for: .normal)
         cell.image = wallhavenRandomImages[indexPath.row]
         return cell
     }
@@ -202,7 +209,6 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
                 })
             }
             
-            
             self.tabBarController?.tabBar.isHidden = true
             blurView.alpha = 1
             UIView.animate(withDuration: 0.8, animations: {
@@ -217,5 +223,27 @@ class RandomCollectionVC: UIViewController, UICollectionViewDelegate, UICollecti
         } else {
             self.alertify("Internet not available. Please try agin later.")
         }
+    }
+    
+    func likeButtonTappedFor(cell: RandomCell) {
+        cell.likeButton.isSelected = !cell.likeButton.isSelected
+        if cell.likeButton.isSelected {
+            cell.likeButton.backgroundColor = UIColor(red: 255, green: 0, blue: 83, alpha: 1)
+            cell.likeButton.isEnabled = false
+            cell.likeButton.setTitle("Liked", for: .selected)
+        } else {
+            cell.likeButton.backgroundColor = UIColor.clear
+            cell.likeButton.isEnabled = true
+            cell.likeButton.setTitle("Like", for: .normal)
+        }
+        let likedImageID = cell.image?.id
+        let likedImageThumbURL = cell.image?.thumbURL
+        let coreDataImage = CoredataImage(context: appDelegate.coreDataStack.persistentContainer.viewContext)
+        coreDataImage.id = likedImageID
+        coreDataImage.thumbURL = likedImageThumbURL
+        coreDataImage.image = NSData(data: UIImagePNGRepresentation(cell.imageView.image!)!)
+        appDelegate.coreDataStack.saveContext()
+        
+        NotificationCenter.default.post(name: NSNotification.Name("refreshData"), object: nil)
     }
 }

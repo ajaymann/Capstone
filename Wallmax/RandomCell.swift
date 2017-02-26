@@ -13,16 +13,18 @@ import Kingfisher
 protocol RandomCellDelegate {
     func downloadButtonTappedFor(cell: RandomCell)
     func imageTappedFor(cell: RandomCell)
+    func likeButtonTappedFor(cell: RandomCell)
 }
 
 class RandomCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var resolutionLabel: UILabel!
-    
     @IBOutlet weak var downloadButtonWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var downloadButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var downloadButton: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var likeButton: UIButton!
+    
     var image : WallhavenImage? {
         didSet {
             guard let image = image else { return }
@@ -55,6 +57,10 @@ class RandomCell: UICollectionViewCell {
     
     @IBAction func cellTapped(_ sender: UIButton) {
         delegate?.imageTappedFor(cell: self)
+    }
+    
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        delegate?.likeButtonTappedFor(cell: self)
     }
     
 }

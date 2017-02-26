@@ -12,6 +12,9 @@
         <array key="WorkSans-Light.ttf">
             <string>WorkSans-Light</string>
         </array>
+        <array key="WorkSans-Regular.ttf">
+            <string>WorkSans-Regular</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
@@ -25,11 +28,114 @@
                     </tabBar>
                     <connections>
                         <segue destination="Set-nY-s5h" kind="relationship" relationship="viewControllers" id="7KZ-HI-ee9"/>
+                        <segue destination="LbB-nP-n5b" kind="relationship" relationship="viewControllers" id="kXA-ki-S42"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GkE-rG-tk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-273" y="-110"/>
+        </scene>
+        <!--FavouritesVC-->
+        <scene sceneID="KIM-Vv-a9A">
+            <objects>
+                <viewController id="LbB-nP-n5b" customClass="FavouritesVC" customModule="Wallmax" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rEB-Fv-6Wi"/>
+                        <viewControllerLayoutGuide type="bottom" id="ktK-oE-p1H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VMq-3O-tnE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jwP-y0-h7r">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ij8-f9-S97">
+                                    <size key="itemSize" width="375" height="231"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavouriteCell" id="lRv-iZ-XCI" customClass="FavouriteCell" customModule="Wallmax" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RNj-j9-ykU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnS-Rh-uIv">
+                                                    <rect key="frame" x="164" y="100" width="46" height="30"/>
+                                                    <connections>
+                                                        <action selector="imageTapped:" destination="lRv-iZ-XCI" eventType="touchUpInside" id="28r-Qs-a4d"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xF-4T-4V9">
+                                                    <rect key="frame" x="335" y="191" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="FT7-Qg-uHA"/>
+                                                        <constraint firstAttribute="width" constant="30" id="aEk-sc-tdx"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="10"/>
+                                                    <state key="normal" title="Remove"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="removeTapped:" destination="lRv-iZ-XCI" eventType="touchUpInside" id="Bd5-fq-nDZ"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="RNj-j9-ykU" firstAttribute="leading" secondItem="lRv-iZ-XCI" secondAttribute="leading" id="Aa3-qa-zT9"/>
+                                            <constraint firstItem="RNj-j9-ykU" firstAttribute="top" secondItem="lRv-iZ-XCI" secondAttribute="top" id="G3t-X6-8Q4"/>
+                                            <constraint firstAttribute="trailing" secondItem="3xF-4T-4V9" secondAttribute="trailing" constant="10" id="HCX-fO-ilv"/>
+                                            <constraint firstAttribute="trailing" secondItem="RNj-j9-ykU" secondAttribute="trailing" id="HMK-LQ-NMB"/>
+                                            <constraint firstItem="SnS-Rh-uIv" firstAttribute="centerY" secondItem="RNj-j9-ykU" secondAttribute="centerY" id="Zux-Ch-9X4"/>
+                                            <constraint firstItem="SnS-Rh-uIv" firstAttribute="height" secondItem="RNj-j9-ykU" secondAttribute="height" id="aAY-15-xep"/>
+                                            <constraint firstItem="SnS-Rh-uIv" firstAttribute="width" secondItem="RNj-j9-ykU" secondAttribute="width" id="enw-ef-NbU"/>
+                                            <constraint firstAttribute="bottom" secondItem="3xF-4T-4V9" secondAttribute="bottom" constant="10" id="n8I-pG-qAb"/>
+                                            <constraint firstItem="SnS-Rh-uIv" firstAttribute="centerX" secondItem="RNj-j9-ykU" secondAttribute="centerX" id="nRX-wU-NJC"/>
+                                            <constraint firstAttribute="bottom" secondItem="RNj-j9-ykU" secondAttribute="bottom" id="sJ0-UC-qV6"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="RNj-j9-ykU" id="vwc-T7-Gwq"/>
+                                            <outlet property="removeButton" destination="3xF-4T-4V9" id="lug-cJ-0Kv"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="LbB-nP-n5b" id="05Z-hS-SGr"/>
+                                    <outlet property="delegate" destination="LbB-nP-n5b" id="hB8-wO-x5J"/>
+                                    <outlet property="prefetchDataSource" destination="LbB-nP-n5b" id="FNq-CZ-Zth"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jwP-y0-h7r" firstAttribute="top" secondItem="VMq-3O-tnE" secondAttribute="top" id="1hd-PD-867"/>
+                            <constraint firstItem="ktK-oE-p1H" firstAttribute="top" secondItem="jwP-y0-h7r" secondAttribute="bottom" id="BU4-Za-Vd8"/>
+                            <constraint firstItem="jwP-y0-h7r" firstAttribute="leading" secondItem="VMq-3O-tnE" secondAttribute="leading" id="Hnq-Vr-Ujm"/>
+                            <constraint firstAttribute="trailing" secondItem="jwP-y0-h7r" secondAttribute="trailing" id="uqt-X2-ejr"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="8wG-sO-sa9"/>
+                    <connections>
+                        <outlet property="favouritesCollectionView" destination="jwP-y0-h7r" id="bjN-of-G52"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adM-dp-9eH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="532" y="298.2008995502249"/>
         </scene>
         <!--Random-->
         <scene sceneID="dfZ-bZ-Fjj">
@@ -64,7 +170,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="201"/>
                                                 </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHn-PF-FKy">
-                                                    <rect key="frame" x="165.5" y="174" width="44" height="21"/>
+                                                    <rect key="frame" x="165" y="174" width="44" height="21"/>
                                                     <fontDescription key="fontDescription" name="WorkSans-Light" family="Work Sans" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -97,6 +203,31 @@
                                                         <action selector="downloadButtonTapped:" destination="5aI-pH-4M8" eventType="touchUpInside" id="T4C-QZ-3Xx"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLY-Ju-yBe">
+                                                    <rect key="frame" x="294" y="161" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="CrX-hq-obI"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="IZB-IZ-Vde"/>
+                                                        <constraint firstAttribute="width" constant="30" id="XwT-ig-ae9"/>
+                                                        <constraint firstAttribute="height" constant="30" id="uzS-fZ-qcv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="WorkSans-Regular" family="Work Sans" pointSize="10"/>
+                                                    <size key="titleShadowOffset" width="0.5" height="1"/>
+                                                    <state key="normal" title="Like">
+                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="selected" title="Liked">
+                                                        <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="likeButtonTapped:" destination="5aI-pH-4M8" eventType="touchUpInside" id="vFk-Ct-ZK8"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <constraints>
@@ -104,10 +235,12 @@
                                             <constraint firstAttribute="trailing" secondItem="aUJ-kl-cZH" secondAttribute="trailing" constant="10" id="33L-lc-kbV"/>
                                             <constraint firstAttribute="bottom" secondItem="kHn-PF-FKy" secondAttribute="bottom" constant="6" id="LRG-JY-uKx"/>
                                             <constraint firstItem="myQ-FG-Ycf" firstAttribute="leading" secondItem="5aI-pH-4M8" secondAttribute="leading" id="MTR-sE-WQP"/>
+                                            <constraint firstAttribute="bottom" secondItem="NLY-Ju-yBe" secondAttribute="bottom" constant="10" id="O38-Cc-iGM"/>
                                             <constraint firstAttribute="bottom" secondItem="myQ-FG-Ycf" secondAttribute="bottom" id="ORW-Nb-QnH"/>
                                             <constraint firstItem="N48-nk-U5c" firstAttribute="width" secondItem="myQ-FG-Ycf" secondAttribute="width" id="Qwt-px-q9w"/>
                                             <constraint firstItem="N48-nk-U5c" firstAttribute="centerX" secondItem="myQ-FG-Ycf" secondAttribute="centerX" id="WsX-bk-Zby"/>
                                             <constraint firstItem="myQ-FG-Ycf" firstAttribute="top" secondItem="5aI-pH-4M8" secondAttribute="top" id="ZbV-HR-s4f"/>
+                                            <constraint firstItem="aUJ-kl-cZH" firstAttribute="leading" secondItem="NLY-Ju-yBe" secondAttribute="trailing" constant="10" id="aaS-S7-Fse"/>
                                             <constraint firstAttribute="bottom" secondItem="aUJ-kl-cZH" secondAttribute="bottom" constant="10" id="fLj-JA-xrd"/>
                                             <constraint firstAttribute="trailing" secondItem="myQ-FG-Ycf" secondAttribute="trailing" id="fVC-hs-eb3"/>
                                             <constraint firstItem="N48-nk-U5c" firstAttribute="height" secondItem="myQ-FG-Ycf" secondAttribute="height" id="pO4-6W-RPh"/>
@@ -118,6 +251,7 @@
                                             <outlet property="downloadButtonHeightConstraint" destination="gfn-39-8tW" id="dVC-In-87x"/>
                                             <outlet property="downloadButtonWidthConstraint" destination="qJ8-3D-Ybf" id="xn7-Eh-M8j"/>
                                             <outlet property="imageView" destination="myQ-FG-Ycf" id="VwJ-Gm-ELw"/>
+                                            <outlet property="likeButton" destination="NLY-Ju-yBe" id="811-PH-T1Y"/>
                                             <outlet property="resolutionLabel" destination="kHn-PF-FKy" id="9Oe-eC-irq"/>
                                         </connections>
                                     </collectionViewCell>

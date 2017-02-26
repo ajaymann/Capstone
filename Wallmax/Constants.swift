@@ -12,6 +12,7 @@ import SystemConfiguration
 
 let kBaseURL = "https://alpha.wallhaven.cc/"
 typealias wallhavenCompletionBlock = (Bool, [WallhavenImage]?, Error?) -> ()
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
 extension UIViewController {
     func alertify(_ message:String) {
